@@ -1,4 +1,4 @@
-const express = require('./config/express');
+const express = require('./shared/express');
 
 Object.defineProperty(global, '__stack', {
   get() {

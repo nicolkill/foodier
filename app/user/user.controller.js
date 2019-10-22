@@ -2,11 +2,8 @@ const mongoose = require('mongoose');
 
 const User = mongoose.model('User');
 
-const {
-  CUISINES,
-} = require('../../config/constants');
-const validator = require('../../config/validator');
-const validations = require('../../config/validations');
+const validator = require('../../shared/validator');
+const validations = require('../../shared/validations');
 
 const subscribe = async (req, res) => {
   const params = req.body;
@@ -14,7 +11,7 @@ const subscribe = async (req, res) => {
     name: [validations.Required, validations.Type.String],
     surname: [validations.Required, validations.Type.String],
     email: [validations.Required, validations.Type.Email],
-    cuisines: [validations.Required, validations.Include(Object.values(CUISINES))],
+    highestPrice: [validations.Required, validations.Type.Number],
     'location.lat': [validations.Required],
     'location.lon': [validations.Required],
   });

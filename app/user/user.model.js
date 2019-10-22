@@ -4,9 +4,7 @@ const userSchema = new mongoose.Schema({
   name: String,
   surname: String,
   email: String,
-  cuisines: [{
-    type: String,
-  }],
+  highestPrice: Number,
   location: {
     type: {
       type: String,
