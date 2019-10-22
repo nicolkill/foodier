@@ -16,11 +16,28 @@ services:
 
       VIRTUAL_HOST: foodier.test
 
+      ZOMATO_API_KEY: b957ff2684edfd083920c661209d2435
+
       # CORS configuration
       ACCESS_CONTROL_ALLOW_ORIGIN: '*'
       ACCESS_CONTROL_ALLOW_CREDENTIALS: 'true'
       ACCESS_CONTROL_EXPOSE_HEADERS: Set-Cookie
       ACCESS_CONTROL_ALLOW_HEADERS: Origin, X-Requested-With, Content-Type, Accept
+
+      # Mongodb configuration
+      MONGODB_HOST: mongo:27017
+      MONGODB_DATABASE: foodier
+      MONGODB_USER: foodier
+      MONGODB_PASSWORD: foodier1234*
+      MONGODB_OPTIONS: authSource=admin
+  mongo:
+    image: mongo:4
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: foodier
+      MONGO_INITDB_ROOT_USERNAME: foodier
+      MONGO_INITDB_ROOT_PASSWORD: foodier1234*
 
 networks:
   proxy:
