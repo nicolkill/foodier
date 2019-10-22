@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  app:
+    image: nicolkill/foodier:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    networks:
+      - default
+      - proxy
+    environment:
+      PORT: 3000
+      NODE_ENV: development
+
+      VIRTUAL_HOST: foodier.test
+
+      # CORS configuration
+      ACCESS_CONTROL_ALLOW_ORIGIN: '*'
+      ACCESS_CONTROL_ALLOW_CREDENTIALS: 'true'
+      ACCESS_CONTROL_EXPOSE_HEADERS: Set-Cookie
+      ACCESS_CONTROL_ALLOW_HEADERS: Origin, X-Requested-With, Content-Type, Accept
+
+networks:
+  proxy:
+    external: true

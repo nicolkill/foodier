@@ -1,0 +1,29 @@
+{
+  "name": "foodier",
+  "version": "1.0.0",
+  "description": "project test for zomato api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolkill/foodier.git"
+  },
+  "author": "Nicol Acosta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolkill/foodier/issues"
+  },
+  "homepage": "https://github.com/nicolkill/foodier#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-http-context": "^1.2.3",
+    "uuid": "^3.3.3",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
