@@ -11,9 +11,6 @@ const handleError = (err, res) => {
     case errors.Authorization:
       res.status(401);
       break;
-    case errors.PaymentRequired:
-      res.status(402);
-      break;
     case errors.Forbidden:
       res.status(403);
       break;
@@ -22,9 +19,6 @@ const handleError = (err, res) => {
       break;
     case errors.Conflict:
       res.status(409);
-      break;
-    case errors.TooManyRequests:
-      res.status(429);
       break;
     case errors.UnprocessableEntity:
       res.status(422);

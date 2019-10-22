@@ -7,6 +7,17 @@ const userSchema = new mongoose.Schema({
   cuisines: [{
     type: String,
   }],
+  location: {
+    type: {
+      type: String,
+      enum: ['Point'],
+      required: true,
+    },
+    coordinates: {
+      type: [Number],
+      required: true,
+    },
+  },
 }, {
   collection: 'countries',
   timestamps: true,
