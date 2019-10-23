@@ -1,6 +1,6 @@
 # Foodier
 
-## Que es?
+## Que es
 
 Es una app pensada para recomendar restaurantes a los usuarios que
 deseen registrarse, claro que faltaria un formulario de registro o algo
@@ -9,6 +9,20 @@ asi, pero en este caso todo es por REST.
 Los usuarios se suscribiran y cada semana les tendra que llegar un email
 con las recomendaciones de la semana, estas recomendaciones son basadas
 en la localizacion del usuario que envia al momento de suscribirse
+
+## Como funciona
+
+Para funcionar este obtiene un usuario como primer punto de contacto y
+y a partir de este se obtienen todos los que esten a 2 km a la redonda y
+a partir de ahi obtenemos la informacion de los restaurantes. Por que a
+todos los que estan a 2 km?. Por que se considera que tambien estaran lo
+suficientemente cerca para considerarse una recomendacion cercana.
+
+Una vez que recomienda a todos, este pasa con los siguientes usuarios
+saltando a los que ya han pasado, en teoria si hubiera usuarios a nivel
+global estos recomendaria a todos los que esten dentro de un rango
+determinado y seguiria hasta cubrir al todos los que esten dentro
+enviando recomendaciones a cada uno basado en su lugar de residencia
 
 ## Features
 
