@@ -79,6 +79,7 @@ module.exports = function () {
   const router = Router();
 
   require('../app/food/food.route')(router);
+  require('../app/user/user.route')(router);
 
   app.use('/', router);
 

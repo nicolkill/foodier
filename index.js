@@ -1,4 +1,5 @@
 const express = require('./shared/express');
+const mongoose = require('./shared/mongoose');
 
 Object.defineProperty(global, '__stack', {
   get() {
@@ -26,6 +27,7 @@ Object.defineProperty(global, '__function', {
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+mongoose();
 const app = express();
 app.listen(process.env.PORT);
 console.log(`Server running at ${process.env.PORT}`);

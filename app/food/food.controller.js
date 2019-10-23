@@ -3,13 +3,16 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
 const ZomatoService = require('../../shared/service/zomato');
+const GmailService = require('../../shared/service/gmail');
 
 const explore = async (pastUsers) => {
-  const { location } = await User.findOne({
-    _id: {
+  const filter = {};
+  if (pastUsers.length > 0) {
+    filter._id = {
       $ne: pastUsers.map(u => u._id),
     }
-  }, 'location') || {};
+  }
+  const { location } = await User.findOne(filter, 'location') || {};
 
   if (!location) {
     return;
@@ -29,9 +32,9 @@ const explore = async (pastUsers) => {
     location.coordinates[0],
   );
 
-  users.forEach((u) => {
-    const selectedRestaurants = restaurants.filter(r => u.highestPrice <= r.pricePerPerson);
-    // TODO: send email
+  users.forEach((user) => {
+    const selectedRestaurants = restaurants.filter(r => user.highestPrice <= r.pricePerPerson);
+    GmailService.sendNewRecommendationsEmail(user, selectedRestaurants)
   });
 
   explore(users);

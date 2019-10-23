@@ -18,6 +18,10 @@ services:
 
       ZOMATO_API_KEY: b957ff2684edfd083920c661209d2435
 
+      # Email Config
+      GMAIL_EMAIL: 'example@gmail.com'
+      GMAIL_PASSWORD: 'example1234*'
+
       # CORS configuration
       ACCESS_CONTROL_ALLOW_ORIGIN: '*'
       ACCESS_CONTROL_ALLOW_CREDENTIALS: 'true'

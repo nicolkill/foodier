@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     },
   },
 }, {
-  collection: 'countries',
+  collection: 'users',
   timestamps: true,
   toJSON: {
     transform(_, ret) {
@@ -26,6 +26,17 @@ const userSchema = new mongoose.Schema({
       delete ret.__v;
     },
   },
+});
+
+userSchema.virtual('fullName').get(function () {
+  return `${this.name} ${this.surname}`;
+});
+
+userSchema.index({
+  location: '2dsphere',
+},
+{
+  name: 'location_user',
 });
 
 module.exports = mongoose.model('User', userSchema);

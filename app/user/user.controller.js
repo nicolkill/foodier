@@ -19,8 +19,8 @@ const subscribe = async (req, res) => {
   params.location = {
     type: 'Point',
     coordinates: [
-      +location.lon,
-      +location.lat,
+      +params.location.lon,
+      +params.location.lat,
     ],
   };
 
